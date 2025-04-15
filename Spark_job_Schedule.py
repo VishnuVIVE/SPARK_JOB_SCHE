@@ -84,12 +84,7 @@ class Spark:
         n = len(apps)
         return (float(eA) / n, float(eD) / n) if n > 0 else (0.0, 0.0)
 
-    def computeViolations(self, apps, steps):
-        for app in apps:
-            if app in self.ended:
-                if self.ended[app][1] - self.ended[app][0] > app.deadline:
-                    return True
-        return False
+    
 
     def computeUnfeasibility(self, apps, steps):
         for app in apps:
@@ -304,13 +299,7 @@ class MultilevelFeedbackQueue(Scheduler):
 # ====================================================
 
 if __name__ == "__main__":
-    scale = 1
-    apps = [
-        App(1, 60 // scale, 300 // scale),
-        App(2, 86 // scale, 300 // scale),
-        App(3, 77 // scale, 120 // scale)
-    ]
-    steps = 720 // scale  # Restored to 720 for meaningful simulation
+   
 
     schedulers = [
         ("FIFO", FIFO()),
