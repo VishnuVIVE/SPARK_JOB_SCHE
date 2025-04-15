@@ -636,11 +636,7 @@ class MultilevelFeedbackQueue(Scheduler):
 
 if __name__ == "__main__":
     scale = 1
-    apps = [
-        App(1, 60 // scale, 300 // scale),
-        App(2, 86 // scale, 300 // scale),
-        App(3, 77 // scale, 120 // scale)
-    ]
+    
     steps = 720 // scale  # Restored to 720 for meaningful simulation
 
     schedulers = [
